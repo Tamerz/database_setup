@@ -1,0 +1,3757 @@
+<?xml version="1.0"?>
+
+<tables>
+
+	<table name="ESEventlogLog">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="eventlog" type="varchar" length="64" />
+		<column name="ESEventlogMain" type="int" />
+		<column name="ESHeartbeat" type="int" />
+		<column name="ESActionTriggerHistory" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogType">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="eventtype" type="varchar" length="32" />
+		<column name="ESEventlogMain" type="int" />
+		<column name="ESHeartbeat" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogID">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="eventid" type="varchar" length="10" />
+		<column name="ESEventlogMain" type="int" />
+		<column name="ESHeartbeat" type="int" />
+		<column name="ESActionTriggerHistory" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_EventlogID" type="NONCLUSTERED" unique="true" fillfactor="80">
+			<field name="eventid" />
+		</index>
+	</table>
+
+	<table name="ESEventlogSource">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="eventsource" type="varchar" length="196" />
+		<column name="ESEventlogMain" type="int" />
+		<column name="ESHeartbeat" type="int" />
+		<column name="ESActionTriggerHistory" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogCategory">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="eventcategory" type="varchar" length="196" />
+		<column name="ESEventlogMain" type="int" />
+		<column name="ESHeartbeat" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogUser">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="eventuser" type="varchar" length="767" />
+		<column name="ESEventlogMain" type="int" />
+		<column name="ESPSTracking" type="int" />
+		<column name="ESEventlogComments" type="int" />
+		<column name="ESPrintTracking" type="int" />
+		<column name="ESLogonTracking" type="int" />
+		<column name="ESHeartbeat" type="int" />
+		<column name="ESObjectTracking" type="int" />
+		<column name="ESTrackingAccountGroups" type="int" />
+		<column name="ESTrackingAccountGroupsCaller" type="int" />
+		<column name="ESTrackingAccountComputersClr" type="int" />
+		<column name="ESTrackingAccountUsers" type="int" />
+		<column name="ESTrackingAccountUsersCaller" type="int" />
+		<column name="ESTrackingPolicy" type="int" />
+		<column name="ESTrackingPolicyCaller" type="int" />
+		<column name="ESTrackingAuthFailure" type="int" />
+		<column name="ESApplication" type="int" />
+		<column name="ESTrackingLogonByType" type="int" />
+		<column name="ESTrackingLogonAuth" type="int" />
+		<column name="ESTrackingLogonAuthService" type="int" />
+		<column name="ESService" type="int" />
+		<column name="ESUptimeHistory" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_EventlogUser" type="NONCLUSTERED" unique="true" fillfactor="50">
+			<field name="eventuser" />
+		</index>
+	</table>
+
+	<table name="ESEventlogComputer">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="eventcomputer" type="varchar" length="255" />
+		<column name="ipaddress" type="varchar" length="40" />
+		<column name="ipaddress_dns" type="varchar" length="40" />
+		<column name="utcEnabledTimestamp" type="bigint" />
+		<column name="ESEventlogMain" type="int" />
+		<column name="ESDiskspace" type="int" />
+		<column name="ESEnvironment" type="int" />
+		<column name="ESPSTracking" type="int" />
+		<column name="ESHeartbeat" type="int" />
+		<column name="ESPerformance" type="int" />
+		<column name="ESLogonTracking" type="int" />
+		<column name="ESPrintTracking" type="int" />
+		<column name="ESService" type="int" />
+		<column name="ESApplication" type="int" />
+		<column name="ESMotionTracking" type="int" />
+		<column name="ESHeartbeatPingTracking" type="int" />
+		<column name="ESNessusLog" type="int" />
+		<column name="ESEventlogMainImported" type="int" />
+		<column name="ESFlatFile" type="int" />
+		<column name="ESFlatFileDelim" type="int" />
+		<column name="ESFolderStatus" type="int" />
+		<column name="ESFilemon" type="int" />
+		<column name="ESSyslog" type="int" />
+		<column name="ESSyslogHost" type="int" />
+		<column name="ESLogonTrackingClient" type="int" />
+		<column name="ESSysinfo" type="int" />
+		<column name="ESObjectTracking" type="int" />
+		<column name="ESObjectTrackingClient" type="int" />
+		<column name="ESTrackingAccountGroups" type="int" />
+		<column name="ESTrackingAccountComputers" type="int" />
+		<column name="ESTrackingAccountComputersCli" type="int" />
+		<column name="ESTrackingAccountUsers" type="int" />
+		<column name="ESTrackingAccountUsersClient" type="int" />
+		<column name="ESTrackingPolicy" type="int" />
+		<column name="ESTrackingAuthFailure" type="int" />
+		<column name="ESTrackingAuthFailureClient" type="int" />
+		<column name="ESTrackingLogonByType" type="int" />
+		<column name="ESTrackingLogonByTypeClient" type="int" />
+		<column name="ESTrackingLogonAuth" type="int" />
+		<column name="ESUptimeHistory" type="int" />
+		<column name="ComputerStatus" type="int">
+			<permissions user="eventsentry_web">
+				<permission>UPDATE</permission>
+			</permissions>
+		</column>
+		<column name="ESActionTriggerHistory" type="int" />
+		<column name="ESSnmpTrapSender" type="int" />
+		<column name="ESSnmpTrapReceiver" type="int" />
+		<column name="Notes" type="varchar" length="2048" />
+		<column name="ESArpReceiver" type="int" />
+		<column name="ESArpSender" type="int" />
+
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogFilter">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="filtername" type="varchar" length="128" />
+		<column name="ESEventlogMain" type="int" />
+		<column name="ESHeartbeat" type="int" />
+		<column name="ESActionTriggerHistory" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogGroup">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="groupname" type="varchar" length="128" />
+		<column name="ESEventlogMain" type="int" />
+		<column name="ESHeartbeat" type="int" />
+		<column name="ESService" type="int" />
+		<column name="ESApplication" type="int" />
+		<column name="ESPerformance" type="int" />
+		<column name="ESDiskspace" type="int" />
+		<column name="ESSysinfo" type="int" />
+		<column name="ESUptimeHistory" type="int" />
+		<column name="ESLogonTracking" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogFilename">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="filename" type="varchar" length="255" />
+		<column name="ESPSTracking" type="int" />
+		<column name="ESFlatFile" type="int" />
+		<column name="ESFlatFileDelim" type="int" />
+		<column name="ESFilemon" type="int" />
+		<column name="ESObjectTracking" type="int" />
+		<column name="ESObjectTrackingProcess" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_EventlogFilename" type="NONCLUSTERED" unique="true" fillfactor="50">
+			<field name="filename" />
+		</index>
+	</table>
+
+	<table name="ESEventlogFilepath">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="filepath" type="varchar" length="255" />
+		<column name="ESPSTracking" type="int" />
+		<column name="ESApplication" type="int" />
+		<column name="ESFlatFile" type="int" />
+		<column name="ESFlatFileDelim" type="int" />
+		<column name="ESFolderStatus" type="int" />
+		<column name="ESFilemon" type="int" />
+		<column name="ESObjectTracking" type="int" />
+		<column name="ESObjectTrackingProcess" type="int" />
+		<column name="ESSysinfo" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_EventlogFilepath" type="NONCLUSTERED" unique="true" fillfactor="50">
+			<field name="filepath" />
+		</index>
+	</table>
+
+	<table name="ESEventlogData">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="eventdata" type="binary" length="65000" />
+		<column name="datalength" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogComments">
+		<column name="eventid" type="int" />
+		<column name="recorddate" type="datetime" />
+		<column name="usercomment" type="text" length="7980" />
+		<column name="eventsource" type="int" />
+		<column name="username" type="int" />
+		<column name="eventtime" type="datetime" />
+		<column name="eventcomputer" type="int" />
+		<column name="eventlog" type="int" />
+		<column name="eventnumber" type="bigint" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogLocation">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="location" type="varchar" length="255" />
+		<permissions user="eventsentry_web">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogLocationMapping">
+		<column name="location" type="int" />
+		<column name="computer" type="int" />
+		<permissions user="eventsentry_web">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<index name="IDX_ES_LocationMapping" type="CLUSTERED" fillfactor="90">
+			<field name="location" />
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESHeartbeatLStatus">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="status" type="varchar" length="32" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESHeartbeatLType">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="type" type="varchar" length="32" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESHeartbeatLDescription">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="description" type="varchar" length="255" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESPrintPrinters">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="255" />
+		<column name="ESPrintTracking" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESPrintDocuments">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="255" />
+		<column name="ESPrintTracking" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_PrintDocuments" type="NONCLUSTERED">
+			<field name="name" />
+		</index>
+	</table>
+
+	<table name="ESPerformanceCounter">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="counter" type="varchar" length="255" />
+		<column name="ESPerformance" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESPerformanceInstance">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="instance" type="varchar" length="255" />
+		<column name="ESPerformance" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESPerformanceName">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="255" />
+		<column name="ESPerformance" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESPerformanceCounterDesc">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="4096" />
+		<column name="ESPerformance" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESStrings">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="1024" />
+		<column name="ESApplication" type="int" />
+		<column name="ESService" type="int" />
+		<column name="ESDiskspace" type="int" />
+		<column name="ESMotionTracking" type="int" />
+		<column name="ESNessusLog" type="int" />
+		<column name="ESFlatFile" type="int" />
+		<column name="ESFlatFileDelim" type="int" />
+		<column name="ESTrackingAccountGroups" type="int" />
+		<column name="ESTrackingAccountComputers" type="int" />
+		<column name="ESTrackingAccountUsers" type="int" />
+		<column name="ESTrackingPolicy" type="int" />
+		<column name="ESTrackingPolicyPasswordPolicy" type="int" />
+		<column name="ESTrackingPolicyAuditPol" type="int" />
+		<column name="ESTrackingPolicyAuditPolCat" type="int" />
+		<column name="ESTrackingPolicyAuditPolSubcat" type="int" />
+		<column name="ESTrackingPolicyAuditPolChg" type="int" />
+		<column name="ESTrackingPolicyKerberosPolicy" type="int" />
+		<column name="ESTrackingPolicyUsrLogonRightS" type="int" />
+		<column name="ESTrackingPolicyUsrLogonRightL" type="int" />
+		<column name="ESTrackingPolicyTrust" type="int" />
+		<column name="ESTrackingPolicyTrustType" type="int" />
+		<column name="ESTrackingPolicyTrustDirection" type="int" />
+		<column name="ESTrackingPolicyTrustSIDFilter" type="int" />
+		<column name="ESTrackingLogonAuthType" type="int" />
+		<column name="ESTrackingLogonAuthProtocol" type="int" />
+		<column name="ESTrackingLogonFailureReason" type="int" />
+		<column name="ESTrackingLogonProcess" type="int" />
+		<column name="ESTrackingLogonType" type="int" />
+		<column name="ESUptimeHistory" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogMain">
+	    <column name="eventnumber" type="bigint" />
+		<column name="eventlog" type="int" key="foreign">
+			<fkey_table>ESEventlogLog</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESEventlogMain_ESEventlogLog</fkey_constraint>
+		</column>
+		<column name="eventtype" type="int" key="foreign">
+			<fkey_table>ESEventlogType</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESEventlogMain_ESEventlogType</fkey_constraint>
+		</column>
+		<column name="eventsource" type="int" key="foreign">
+			<fkey_table>ESEventlogSource</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESEventlogMain_ESEventlogSource</fkey_constraint>
+		</column>
+		<column name="eventcategory" type="int" key="foreign">
+			<fkey_table>ESEventlogCategory</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESEventlogMain_ESEventlogCategory</fkey_constraint>
+		</column>
+		<column name="eventid" type="int" />
+		<column name="eventuser" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESEventlogMain_FKESEventlogUser</fkey_constraint>
+		</column>
+		<column name="eventcomputer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESEventlogMain_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="eventtime" type="datetime" />
+		<column name="eventmessage" type="text" length="7400"/>
+		<column name="eventdata" type="int" />
+		<column name="groupname" type="int" key="foreign">
+			<fkey_table>ESEventlogGroup</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESEventlogMain_FKESEventlogGroup</fkey_constraint>
+		</column>
+		<column name="filtername" type="int" />
+		<column name="acknowledged" type="int">
+			<permissions user="eventsentry_web">
+				<permission>UPDATE</permission>
+			</permissions>
+		</column>
+		<column name="ack_required" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_ESEventlogMain_EventTime" type="CLUSTERED" fillfactor="80">
+			<field name="eventtime" />
+		</index>
+		<index name="IDX_ESEventlogMain_RecordDetail" action="DROP" />
+		<index name="IDX_ES_ESEventlogMain_RecordDetail" action="DROP" />
+		<index name="IDX_ES_EventLogDetail" action="DROP" />
+		<index name="IDX_ES_EventNumber" action="DROP" />
+		<index name="EventLogDetail" action="DROP" />
+		<index name="IDX_ESEventlogMain_RecordDetail" type="NONCLUSTERED">
+			<field name="eventnumber" />
+			<field name="eventid" />
+			<field name="eventlog" />
+			<field name="eventsource" />
+			<field name="eventcomputer" />
+		</index>
+		<index name="IDX_ESEventlogMain_eventlog" type="NONCLUSTERED">
+		    <field name="eventlog" />
+		</index>
+		<index name="IDX_ESEventlogMain_eventcategory" type="NONCLUSTERED">
+		    <field name="eventcategory" />
+		</index>
+		<index name="IDX_ESEventlogMain_eventsource" type="NONCLUSTERED">
+		    <field name="eventsource" />
+		</index>
+		<index name="IDX_ESEventlogMain_eventcomputer" type="NONCLUSTERED">
+		    <field name="eventcomputer" />
+		</index>
+		<index name="IDX_ESEventlogMain_eventtype" type="NONCLUSTERED">
+		    <field name="eventtype" />
+		</index>
+		<index name="IDX_ESEventlogMain_eventuser" type="NONCLUSTERED">
+		    <field name="eventuser" />
+		</index>
+	</table>
+
+	<table name="ESPSTracking">
+		<column name="process_id_part1" type="int" />
+		<column name="process_id_part2" type="int" />
+		<column name="process_creator_id_part1" type="int" />
+		<column name="process_creator_id_part2" type="int" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPSTracking_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="username" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPSTracking_ESEventlogUser</fkey_constraint>
+		</column>
+		<column name="filename" type="int" key="foreign">
+			<fkey_table>ESEventlogFilename</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPSTracking_ESEventlogFilename</fkey_constraint>
+		</column>
+		<column name="filepath" type="int" key="foreign">
+			<fkey_table>ESEventlogFilepath</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPSTracking_ESEventlogFilepath</fkey_constraint>
+		</column>
+		<column name="start_unix" type="int" />
+		<column name="start_datetime" type="datetime" />
+		<column name="duration" type="int" />
+		<column name="incomplete" type="int" />
+		<column name="LogonID" type="varchar" length="20" />
+		<column name="eventnumber" type="bigint" />
+		<column name="ComputerProductType" type="varchar" length="3" />
+		<column name="commandline" type="varchar" length="512" />
+		<column name="token_elevation" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_PSTracking_UpdateDuration" action="DROP" />
+		<index name="IDX_ES_PSTracking" type="CLUSTERED" fillfactor="80">
+			<field name="start_datetime" />
+		</index>
+		<index name="IDX_ES_PSTracking_Unique" type="NONCLUSTERED" unique="true">
+			<field name="process_id_part2" />
+			<field name="process_creator_id_part2" />
+			<field name="computername" />
+			<field name="username" />
+			<field name="filename" />
+			<field name="filepath" />
+			<field name="start_unix" />
+			<field name="eventnumber" />
+		</index>
+		<index name="IDX_ES_PSTracking_Computer" type="NONCLUSTERED" fillfactor="80">
+			<field name="computername" />
+		</index>
+		<index name="IDX_ESPSTracking_UpdateDuration" type="NONCLUSTERED">
+			<field name="process_id_part1" />
+			<field name="process_id_part2" />
+			<field name="computername" />
+			<field name="start_unix" />
+			<field name="incomplete" />
+			<field name="eventnumber" />
+		</index>
+	</table>
+
+	<table name="ESEnvironment">
+		<column name="data" type="int" />
+		<column name="type" type="char" length="1" />
+		<column name="subtype" type="char" length="1" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESEnvironment_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="recorddate" type="datetime" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ESEnvironment_DateTime" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESHeartbeatStatus">
+		<column name="recorddate" type="datetime" />
+		<column name="lastScanDuration" type="int" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatStatus_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="computersource" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatStatus_ESEventlogComputer2</fkey_constraint>
+		</column>
+		<column name="filtergroup" type="int" key="foreign">
+			<fkey_table>ESEventlogGroup</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatStatus_ESEventlogGroup</fkey_constraint>
+		</column>
+		<column name="status" type="int" key="foreign">
+			<fkey_table>ESHeartbeatLStatus</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatStatus_ESHeartbeatLStatus</fkey_constraint>
+		</column>
+		<column name="ping" type="int" key="foreign">
+			<fkey_table>ESHeartbeatLStatus</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatStatus_ESHeartbeatLStatus1</fkey_constraint>
+		</column>
+		<column name="agent" type="int" key="foreign">
+			<fkey_table>ESHeartbeatLStatus</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatStatus_ESHeartbeatLStatus2</fkey_constraint>
+		</column>
+		<column name="tcp" type="int" key="foreign">
+			<fkey_table>ESHeartbeatLStatus</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatStatus_ESHeartbeatLStatus3</fkey_constraint>
+		</column>
+		<column name="tcp_ports_all" type="varchar" length="384" />
+		<column name="tcp_ports_failed" type="varchar" length="384" />
+		<column name="description" type="int" key="foreign">
+			<fkey_table>ESHeartbeatLDescription</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatStatus_ESHeartbeatLDescription</fkey_constraint>
+		</column>
+		<column name="ping_roundtrip" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_HBStatus" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESHeartbeatHistory">
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatHistory_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="computersource" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatHistory_ESEventlogComputer2</fkey_constraint>
+		</column>
+		<column name="filtergroup" type="int" key="foreign">
+			<fkey_table>ESEventlogGroup</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatHistory_ESEventlogGroup</fkey_constraint>
+		</column>
+		<column name="type" type="int" key="foreign">
+			<fkey_table>ESHeartbeatLType</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatHistory_ESHeartbeatLType</fkey_constraint>
+		</column>
+		<column name="status_old" type="int" key="foreign">
+			<fkey_table>ESHeartbeatLStatus</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatHistory_ESHeartbeatLStatus</fkey_constraint>
+		</column>
+		<column name="status_new" type="int" key="foreign">
+			<fkey_table>ESHeartbeatLStatus</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatHistory_ESHeartbeatLStatus1</fkey_constraint>
+		</column>
+		<column name="description" type="int" key="foreign">
+			<fkey_table>ESHeartbeatLDescription</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatHistory_ESHeartbeatLDescription</fkey_constraint>
+		</column>
+		<column name="maint_secs" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_HBHistory" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESIPAddress">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="40" />
+		<column name="ESLogonTracking" type="int" />
+		<column name="ESObjectTracking" type="int" />
+		<column name="ESTrackingAccountGroups" type="int" />
+		<column name="ESTrackingAccountComputers" type="int" />
+		<column name="ESTrackingAccountUsers" type="int" />
+		<column name="ESTrackingPolicy" type="int" />
+		<column name="ESTrackingAuthFailure" type="int" />
+		<column name="ESTrackingLogonByType" type="int" />
+		<column name="ESTrackingLogonAuth" type="int" />
+		<column name="ESSnmpTrapSender" type="int" />
+		<column name="ESArp" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESLogonTracking">
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESLogonTracking_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="username" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESLogonTracking_ESEventlogUser</fkey_constraint>
+		</column>
+		<column name="start_unix" type="int" />
+		<column name="start_datetime" type="datetime" />
+		<column name="duration" type="int" />
+		<column name="incomplete" type="int" />
+		<column name="LogonID" type="varchar" length="16" />
+		<column name="LogonType" type="int" />
+		<column name="SourceIP" type="int" key="foreign">
+			<fkey_table>ESIPAddress</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESLogonTracking_ESIPAddress</fkey_constraint>
+		</column>
+		<column name="SourceComputer" type="int" />
+		<column name="SourcePort" type="int" />
+		<column name="RemoteDesktopState" type="int" />
+		<column name="HasConnections" type="int" />
+		<column name="IsSession" type="int" />
+		<column name="IsAdmin" type="int" />
+		<column name="ComputerProductType" type="varchar" length="3" />
+		<column name="groupname" type="int" key="foreign">
+			<fkey_table>ESEventlogGroup</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESLogonTracking_ESEventlogGroup</fkey_constraint>
+		</column>
+		<column name="eventid" type="int" />
+		<column name="eventnumber" type="bigint" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_LogonTracking" type="CLUSTERED" fillfactor="80">
+			<field name="start_datetime" />
+		</index>
+		<index name="IDX_ES_LogonTracking_Unique" type="NONCLUSTERED" unique="true">
+			<field name="computername" />
+			<field name="username" />
+			<field name="start_unix" />
+			<field name="LogonID" />
+		</index>
+	</table>
+
+	<table name="ESPerformance">
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPerformance_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="name" type="int" key="foreign">
+			<fkey_table>ESPerformanceName</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPerformance_ESPerformanceName</fkey_constraint>
+		</column>
+		<column name="counter" type="int" key="foreign">
+			<fkey_table>ESPerformanceCounter</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPerformance_ESPerformanceCounter</fkey_constraint>
+		</column>
+		<column name="instance" type="int" key="foreign">
+			<fkey_table>ESPerformanceInstance</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPerformance_ESPerformanceInstance</fkey_constraint>
+		</column>
+		<column name="data_low" type="bigint" />
+		<column name="data_high" type="bigint" />
+		<column name="groupname" type="int" />
+		<column name="data_float" type="float" />
+		<column name="usefloat" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_Performance" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+		<index name="IDX_ES_PERF_ENUMERATE" type="NONCLUSTERED">
+			<field name="computername" />
+			<field name="name" />
+			<field name="instance" />
+		</index>
+	</table>
+
+	<table name="ESPerformanceTrend">
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPerformanceTrend_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="name" type="int" key="foreign">
+			<fkey_table>ESPerformanceName</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPerformanceTrend_ESPerformanceName</fkey_constraint>
+		</column>
+		<column name="counter" type="int" key="foreign">
+			<fkey_table>ESPerformanceCounter</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPerformanceTrend_ESPerformanceCounter</fkey_constraint>
+		</column>
+		<column name="instance" type="int" key="foreign">
+			<fkey_table>ESPerformanceInstance</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPerformanceTrend_ESPerformanceInstance</fkey_constraint>
+		</column>
+		<column name="day" type="int" />
+		<column name="hour" type="int" />
+		<column name="hour_period" type="int" />
+		<column name="usefloat" type="int" />
+		<column name="data_points" type="int" />
+		<column name="data" type="float" />
+
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_PerformanceTrend_Computer" type="NONCLUSTERED" fillfactor="80">
+			<field name="computername" />
+		</index>
+		<index name="IDX_ES_PerformanceTrend" type="NONCLUSTERED">
+			<field name="computername" />
+			<field name="name" />
+			<field name="counter" />
+			<field name="instance" />
+		</index>
+	</table>
+
+	<table name="ESSearchSimple">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="URL" type="text" length="4000" />
+		<column name="username" type="int" />
+		<column name="mycomment" type="varchar" length="768" />
+		<column name="searchname" type="varchar" length="255" />
+		<column name="recorddate" type="datetime" />
+		<column name="isglobal" type="int" />
+		<column name="reporttype" type="int" />
+		<column name="profile" type="varchar" length="128" />
+		<column name="query_limit" type="varchar" length="16" />
+		<column name="time_limit" type="varchar" length="32" />
+		<column name="acknowledged" type="varchar" length="24" />
+		<column name="start_date" type="datetime" />
+		<column name="end_date" type="datetime" />
+		<column name="order_1" type="varchar" length="24" />
+		<column name="order_2" type="varchar" length="24" />
+		<column name="use_date" type="int" />
+		<column name="order_1_desc" type="int" />
+		<column name="order_2_desc" type="int" />
+		<column name="DistinctValues" type="varchar" length="128" />
+		<column name="GroupChart" type="int" />
+		<column name="run_count" type="int" />
+		<column name="hide_col" type="varchar" length="128" />
+		<column name="category" type="varchar" length="64" />
+		<column name="readonly" type="int" />
+		<column name="page" type="varchar" length="96" />
+		<column name="review" type="varchar" length="50" />
+		<permissions user="eventsentry_web">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+			<permission>DELETE</permission>
+		</permissions>
+	</table>
+
+	<table name="ESPrintTracking">
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPrintTracking_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="username" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPrintTracking_ESEventlogUser</fkey_constraint>
+		</column>
+		<column name="start_unix" type="int" />
+		<column name="start_datetime" type="datetime" />
+		<column name="printer" type="int" key="foreign">
+			<fkey_table>ESPrintPrinters</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPrintTracking_ESPrintPrinters</fkey_constraint>
+		</column>
+		<column name="document_name" type="int" key="foreign">
+			<fkey_table>ESPrintDocuments</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPrintTracking_ESPrintDocuments</fkey_constraint>
+		</column>
+		<column name="document_id" type="int" />
+		<column name="bytes_printed" type="int" />
+		<column name="pages" type="int" />
+		<column name="paid" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_PrintTracking" type="CLUSTERED" fillfactor="80">
+			<field name="start_datetime" />
+		</index>
+	</table>
+
+	<table name="ESSearchAdvanced">
+		<column name="search_id" type="int" key="foreign">
+			<fkey_table>ESSearchSimple</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSearchAdvanced_ESSearchSimple</fkey_constraint>
+		</column>
+		<column name="field" type="varchar" length="32" />
+		<column name="condition_value" type="char" length="2" />
+		<column name="search_value" type="text" length="1024" />
+		<permissions user="eventsentry_web">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+			<permission>DELETE</permission>
+		</permissions>
+	</table>
+
+	<table name="ESPrintCost">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPrintCost_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="printer" type="int" key="foreign">
+			<fkey_table>ESPrintPrinters</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPrintCost_ESPrintPrinters</fkey_constraint>
+		</column>
+		<column name="costperpage" type="float" />
+		<permissions user="eventsentry_web">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<index name="IDX_ES_PrintCost_Unique" type="NONCLUSTERED" unique="true">
+			<field name="computername" />
+			<field name="printer" />
+		</index>
+	</table>
+
+	<table name="ESDiskspace">
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESDiskspace_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="logicaldrive" type="varchar" length="255" />
+		<column name="spacefree" type="int" />
+		<column name="spacetotal" type="int" />
+		<column name="recorddate" type="datetime" />
+		<column name="logicaldrivename" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESDiskspace_ESStrings</fkey_constraint>
+		</column>
+		<column name="groupname" type="int" key="foreign">
+			<fkey_table>ESEventlogGroup</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESDiskspace_ESEventlogGroup</fkey_constraint>
+		</column>
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_DiskspaceLogicalDrives" action="DROP" />
+		<index name="IDX_ES_Diskspace" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+		<index name="IDX_ES_Diskspace_LogicalDrives" type="NONCLUSTERED" fillfactor="50">
+			<field name="computername" />
+			<field name="logicaldrive" />
+		</index>
+	</table>
+
+	<table name="ESServiceName">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="255" />
+		<column name="ESService" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESServiceKey">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="255" />
+		<column name="ESService" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESAppName">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="255" />
+		<column name="ESApplication" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESFile">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="text" length="1024" />
+		<column name="ESService" type="int" />
+		<column name="ESUptimeHistory" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESServiceStatus">
+		<column name="recorddate" type="datetime" />
+		<column name="groupname" type="int" key="foreign">
+			<fkey_table>ESEventlogGroup</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceStatus_ESEventlogGroup</fkey_constraint>
+		</column>
+		<column name="computer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceStatus_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="service" type="int" key="foreign">
+			<fkey_table>ESServiceName</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceStatus_ESServiceName</fkey_constraint>
+		</column>
+		<column name="service_key" type="int" key="foreign">
+			<fkey_table>ESServiceKey</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceStatus_ESServiceKey</fkey_constraint>
+		</column>
+		<column name="status" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceStatus_ESStrings</fkey_constraint>
+		</column>
+		<column name="isdriver" type="int" />
+		<column name="startup_type" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceStatus_ESStrings_startuptype</fkey_constraint>
+		</column>
+		<column name="serviceaccount" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceStatus_ESEventlogUser</fkey_constraint>
+		</column>
+		<column name="executable" type="int" key="foreign">
+			<fkey_table>ESFile</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceStatus_ESFile</fkey_constraint>
+		</column>
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_ServiceStatus" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+			<field name="computer" />
+		</index>
+		<index name="IDX_ES_ServiceStatus_ComputerServicekey">
+			<field name="computer" />
+			<field name="service_key" />
+		</index>
+	</table>
+
+	<table name="ESServiceHistory">
+		<column name="recorddate" type="datetime" />
+		<column name="groupname" type="int" key="foreign">
+			<fkey_table>ESEventlogGroup</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceHistory_ESEventlogGroup</fkey_constraint>
+		</column>
+		<column name="computer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceHistory_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="service" type="int" key="foreign">
+			<fkey_table>ESServiceName</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceHistory_ESServiceName</fkey_constraint>
+		</column>
+		<column name="service_key" type="int" key="foreign">
+			<fkey_table>ESServiceKey</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceHistory_ESServiceKey</fkey_constraint>
+		</column>
+		<column name="status_old" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceHistory_ESStrings1</fkey_constraint>
+		</column>
+		<column name="status_new" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceHistory_ESESStrings2</fkey_constraint>
+		</column>
+		<column name="startup_type" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceHistory_ESStrings3</fkey_constraint>
+		</column>
+		<column name="startup_type_new" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceHistory_ESStrings4</fkey_constraint>
+		</column>
+		<column name="serviceaccount_old" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceHistory_ESEventlogUser1</fkey_constraint>
+		</column>
+		<column name="serviceaccount_new" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceHistory_ESEventlogUser2</fkey_constraint>
+		</column>
+		<column name="executable_old" type="int" key="foreign">
+			<fkey_table>ESFile</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceHistory_ESFile1</fkey_constraint>
+		</column>
+		<column name="executable_new" type="int" key="foreign">
+			<fkey_table>ESFile</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESServiceHistory_ESFile2</fkey_constraint>
+		</column>
+		<column name="isdriver" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_ServiceHistory" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESAppPublisher">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="255" />
+		<column name="ESApplication" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESAppStatus">
+		<column name="recorddate" type="datetime" />
+		<column name="groupname" type="int" key="foreign">
+			<fkey_table>ESEventlogGroup</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESAppStatus_ESEventlogGroup</fkey_constraint>
+		</column>
+		<column name="computer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESAppStatus_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="application" type="int" key="foreign">
+			<fkey_table>ESAppName</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESAppStatus_ESAppName</fkey_constraint>
+		</column>
+		<column name="installdir" type="int" key="foreign">
+			<fkey_table>ESEventlogFilepath</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESAppStatus_ESEventlogFilepath</fkey_constraint>
+		</column>
+		<column name="publisher" type="int" key="foreign">
+			<fkey_table>ESAppPublisher</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESAppStatus_ESAppPublisher</fkey_constraint>
+		</column>
+		<column name="myversion" type="varchar" length="32" />
+		<column name="iswindowsupdate" type="int" />
+		<column name="is64bit" type="int" />
+		<column name="licensekey" type="varchar" length="64" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_AppStatus" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESAppHistory">
+		<column name="recorddate" type="datetime" />
+		<column name="groupname" type="int" key="foreign">
+			<fkey_table>ESEventlogGroup</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESAppHistory_ESEventlogGroup</fkey_constraint>
+		</column>
+		<column name="computer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESAppHistory_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="application" type="int" key="foreign">
+			<fkey_table>ESAppName</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESAppHistory_ESAppName</fkey_constraint>
+		</column>
+		<column name="installdir" type="int" key="foreign">
+			<fkey_table>ESEventlogFilepath</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESAppHistory_ESEventlogFilepath</fkey_constraint>
+		</column>
+		<column name="publisher" type="int" key="foreign">
+			<fkey_table>ESAppPublisher</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESAppHistory_ESAppPublisher</fkey_constraint>
+		</column>
+		<column name="myaction" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESAppHistory_ESStrings</fkey_constraint>
+		</column>
+		<column name="myversion" type="varchar" length="32" />
+		<column name="username" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESAppHistory_ESEventlogUser</fkey_constraint>
+		</column>
+		<column name="iswindowsupdate" type="int" />
+		<column name="is64bit" type="int" />
+		<column name="licensekey" type="varchar" length="64" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_AppHistory" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESGroupMapping">
+		<column name="groupname" type="int" />
+		<column name="computer" type="int" />
+		<column name="hbonly" type="int" />
+		<column name="owner" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESMotionTracking">
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESMotionTracking_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="location" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESMotionTracking_ESStrings</fkey_constraint>
+		</column>
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_MotionTracking" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESHeartbeatPingTracking">
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatPingTracking_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="computersource" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESHeartbeatPingTracking_ESEventlogComputer2</fkey_constraint>
+		</column>
+		<column name="recorddate" type="datetime" />
+		<column name="filtergroup" type="int" />
+		<column name="responsetime" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_HBPingTracking" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESNessusKB">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="description_1" type="text" length="7400" />
+		<column name="description_2" type="text" length="7400" />
+		<column name="description_3" type="text" length="7400" />
+		<column name="false_positive" type="int">
+			<permissions user="eventsentry_web">
+				<permission>UPDATE</permission>
+			</permissions>
+		</column>
+		<column name="ESNessusLog" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESNessusPort">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="128" />
+		<column name="ESNessusLog" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESNessusLog">
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESNessusLog_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="port" type="int" key="foreign">
+			<fkey_table>ESNessusPort</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESNessusLog_ESNessusPort</fkey_constraint>
+		</column>
+		<column name="severity" type="int" />
+		<column name="plugin_id" type="int" />
+		<column name="kbid" type="int" />
+		<column name="riskfactor" type="int" />
+		<column name="cvss" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_NessusLog" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESFileLDefinitions">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="128" />
+		<column name="ESFlatFileDelim" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESFileLookup1">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="filetype" type="int" />
+		<column name="mytext" type="text" length="1024" />
+		<column name="ESFlatFileDelim" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESFileLookup2">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="filetype" type="int" />
+		<column name="mytext" type="text" length="1024" />
+		<column name="ESFlatFileDelim" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESFileLookup3">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="filetype" type="int" />
+		<column name="mytext" type="text" length="1024" />
+		<column name="ESFlatFileDelim" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESFileLookup4">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="filetype" type="int" />
+		<column name="mytext" type="text" length="1024" />
+		<column name="ESFlatFileDelim" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESFileLookup5">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="filetype" type="int" />
+		<column name="mytext" type="text" length="1024" />
+		<column name="ESFlatFileDelim" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESFileLookup6">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="filetype" type="int" />
+		<column name="mytext" type="text" length="1024" />
+		<column name="ESFlatFileDelim" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESFileLookup7">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="filetype" type="int" />
+		<column name="mytext" type="text" length="1024" />
+		<column name="ESFlatFileDelim" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESFileLookup8">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="filetype" type="int" />
+		<column name="mytext" type="text" length="1024" />
+		<column name="ESFlatFileDelim" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESFileDefinitions">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="deleted" type="int" />
+		<column name="name" type="varchar" length="128" />
+		<column name="field_names" type="text" length="1024" />
+		<column name="revision" type="int" />
+		<column name="ESFlatFileDelim" type="int" />
+		<column name="f1" type="int" />
+		<column name="f2" type="int" />
+		<column name="f3" type="int" />
+		<column name="f4" type="int" />
+		<column name="f5" type="int" />
+		<column name="f6" type="int" />
+		<column name="f7" type="int" />
+		<column name="f8" type="int" />
+		<column name="f9" type="int" />
+		<column name="f10" type="int" />
+		<column name="f11" type="int" />
+		<column name="f12" type="int" />
+		<column name="f13" type="int" />
+		<column name="f14" type="int" />
+		<column name="f15" type="int" />
+		<column name="f16" type="int" />
+		<column name="f17" type="int" />
+		<column name="f18" type="int" />
+		<column name="f19" type="int" />
+		<column name="f20" type="int" />
+		<column name="f21" type="int" />
+		<column name="f22" type="int" />
+		<column name="f23" type="int" />
+		<column name="f24" type="int" />
+		<column name="f25" type="int" />
+		<column name="f26" type="int" />
+		<column name="f27" type="int" />
+		<column name="f28" type="int" />
+		<column name="f29" type="int" />
+		<column name="f30" type="int" />
+		<column name="f31" type="int" />
+		<column name="f32" type="int" />
+		<column name="f33" type="int" />
+		<column name="f34" type="int" />
+		<column name="f35" type="int" />
+		<column name="f36" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ESFileDefinitions_Unique" type="NONCLUSTERED" unique="true">
+			<field name="name" />
+			<field name="revision" />
+		</index>
+	</table>
+
+	<table name="ESFileMain">
+		<column name="recorddate" type="datetime" />
+		<column name="filename" type="int" key="foreign">
+				<fkey_table>ESEventlogFilename</fkey_table>
+				<fkey_column>id</fkey_column>
+				<fkey_constraint>FK_ESFileMain_ESFileName1</fkey_constraint>
+		</column>
+		<column name="filepath" type="int" key="foreign">
+			<fkey_table>ESEventlogFilepath</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMain_ESFilePath1</fkey_constraint>
+		</column>
+		<column name="filename_actual" type="int" key="foreign">
+			<fkey_table>ESEventlogFilename</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMain_ESFileName2</fkey_constraint>
+		</column>
+		<column name="filepath_actual" type="int" key="foreign">
+			<fkey_table>ESEventlogFilepath</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMain_ESFilePath2</fkey_constraint>
+		</column>
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMain_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="content" type="varchar" length="7980" />
+		<column name="file_description" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMain_ESStrings</fkey_constraint>
+		</column>
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_FileMain" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESFileMainDelim">
+	    <column name="id" type="bigint" null="false" autoincrement="true" key="primary" />
+		<column name="recorddate" type="datetime" />
+		<column name="filename" type="int" key="foreign">
+			<fkey_table>ESEventlogFilename</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMainDelim_ESFileName1</fkey_constraint>
+		</column>
+		<column name="filepath" type="int" key="foreign">
+			<fkey_table>ESEventlogFilepath</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMainDelim_ESFilePath1</fkey_constraint>
+		</column>
+		<column name="filename_actual" type="int" key="foreign">
+			<fkey_table>ESEventlogFilename</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMainDelim_ESFileName2</fkey_constraint>
+		</column>
+		<column name="filepath_actual" type="int" key="foreign">
+			<fkey_table>ESEventlogFilepath</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMainDelim_ESFilePath2</fkey_constraint>
+		</column>
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMainDelim_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="filetype" type="int" />
+		<column name="revision" type="int" />
+		<column name="field_1" type="int" />
+		<column name="field_2" type="int" />
+		<column name="field_3" type="int" />
+		<column name="field_4" type="int" />
+		<column name="field_5" type="int" />
+		<column name="field_6" type="int" />
+		<column name="field_7" type="int" />
+		<column name="field_8" type="int" />
+		<column name="field_9" type="int" />
+		<column name="field_10" type="int" />
+		<column name="field_11" type="int" />
+		<column name="field_12" type="int" />
+		<column name="field_13" type="int" />
+		<column name="field_14" type="int" />
+		<column name="field_15" type="int" />
+		<column name="field_16" type="int" />
+		<column name="field_17" type="int" />
+		<column name="field_18" type="int" />
+		<column name="field_19" type="varchar" length="32" />
+		<column name="field_20" type="varchar" length="32" />
+		<column name="field_21" type="varchar" length="32" />
+		<column name="field_22" type="varchar" length="32" />
+		<column name="field_23" type="varchar" length="512" />
+		<column name="field_24" type="varchar" length="512" />
+		<column name="field_25" type="varchar" length="512" />
+		<column name="field_26" type="varchar" length="512" />
+		<column name="field_27" type="text" length="1024" />
+		<column name="field_28" type="text" length="1024" />
+		<column name="field_29" type="int" key="foreign">
+			<fkey_table>ESFileLookup1</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMainDelim_ESLookup1</fkey_constraint>
+		</column>
+		<column name="field_30" type="int" key="foreign">
+			<fkey_table>ESFileLookup2</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMainDelim_ESLookup2</fkey_constraint>
+		</column>
+		<column name="field_31" type="int" key="foreign">
+			<fkey_table>ESFileLookup3</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMainDelim_ESLookup3</fkey_constraint>
+		</column>
+		<column name="field_32" type="int" key="foreign">
+			<fkey_table>ESFileLookup4</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMainDelim_ESLookup4</fkey_constraint>
+		</column>
+		<column name="field_33" type="int" key="foreign">
+			<fkey_table>ESFileLookup5</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMainDelim_ESLookup5</fkey_constraint>
+		</column>
+		<column name="field_34" type="int" key="foreign">
+			<fkey_table>ESFileLookup6</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMainDelim_ESLookup6</fkey_constraint>
+		</column>
+		<column name="field_35" type="int" key="foreign">
+			<fkey_table>ESFileLookup7</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMainDelim_ESLookup7</fkey_constraint>
+		</column>
+		<column name="field_36" type="int" key="foreign">
+			<fkey_table>ESFileLookup8</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMainDelim_ESLookup8</fkey_constraint>
+		</column>
+		<column name="file_description" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFileMainDelim_ESStrings</fkey_constraint>
+		</column>
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_FileMainDelim" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESFolderStatus">
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFolderStatus_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="filepath" type="int" key="foreign">
+			<fkey_table>ESEventlogFilepath</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFolderStatus_ESEventlogFilepath</fkey_constraint>
+		</column>
+		<column name="files" type="int" />
+		<column name="folders" type="int" />
+		<column name="size_logical" type="int" />
+		<column name="size_logical_type" type="char" length="2" />
+		<column name="size_physical" type="int" />
+		<column name="size_physical_type" type="char" length="2" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_FolderStatus" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESSyslogFacility">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="64" />
+		<column name="ESSyslog" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESSyslogSeverity">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="64" />
+		<column name="ESSyslog" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESSyslogMain">
+		<column name="recorddate" type="datetime" />
+		<column name="isTcp" type="int" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSyslogMain_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="remotehost" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSyslogMain_ESSyslogHost</fkey_constraint>
+		</column>
+		<column name="facility" type="int" key="foreign">
+			<fkey_table>ESSyslogFacility</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSyslogMain_ESSyslogFacility</fkey_constraint>
+		</column>
+		<column name="severity" type="int" key="foreign">
+			<fkey_table>ESSyslogSeverity</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSyslogMain_ESSyslogSeverity</fkey_constraint>
+		</column>
+		<column name="message" type="text" length="7400" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_SyslogMain" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+		<index name="IDX_ESSyslogMain_computername" fillfactor="80">
+		    <field name="computername" />
+		</index>
+		<index name="IDX_ESSyslogMain_remotehost" fillfactor="80">
+		    <field name="remotehost" />
+		</index>
+		<index name="IDX_ESSyslogMain_facility" fillfactor="80">
+		    <field name="facility" />
+		</index>
+		<index name="IDX_ESSyslogMain_severity" fillfactor="80">
+		    <field name="severity" />
+		</index>
+	</table>
+
+
+	<table name="ESFilemon">
+
+        <view name="ESFilemonV">
+            <column name="recorddate" />
+            <column name="computername" />
+            <column name="filesize" />
+            <column name="filesize_type" />
+            <column name="filename" />
+            <column name="filepath" />
+            <column name="hash" />
+            <permissions user="eventsentry_svc">
+			    <permission>SELECT</permission>
+			    <permission>UPDATE</permission>
+		    </permissions>
+        </view>
+
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFilemon_ESEventlogComputer</fkey_constraint>
+			<permissions user="eventsentry_svc">
+				<permission>SELECT</permission>
+			</permissions>
+		</column>
+		<column name="filepath" type="int" key="foreign">
+			<fkey_table>ESEventlogFilepath</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFilemon_ESEventlogFilepath</fkey_constraint>
+			<permissions user="eventsentry_svc">
+				<permission>SELECT</permission>
+			</permissions>
+		</column>
+		<column name="filename" type="int" key="foreign">
+			<fkey_table>ESEventlogFilename</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFilemon_ESEventlogFilename</fkey_constraint>
+			<permissions user="eventsentry_svc">
+				<permission>SELECT</permission>
+			</permissions>
+		</column>
+		<column name="filesize" type="int" />
+		<column name="filesize_type" type="char" length="2" />
+		<column name="hash" type="varchar" length="64" />
+		<column name="IsStream" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>DELETE</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_Filemon" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESFilemonHistory">
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFilemonHistory_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="filepath" type="int" key="foreign">
+			<fkey_table>ESEventlogFilepath</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFilemonHistory_ESEventlogFilepath</fkey_constraint>
+		</column>
+		<column name="filename" type="int" key="foreign">
+			<fkey_table>ESEventlogFilename</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESFilemonHistory_ESEventlogFilename</fkey_constraint>
+		</column>
+		<column name="filesize_old" type="int" />
+		<column name="filesize_old_type" type="char" length="2" />
+		<column name="hash_old" type="varchar" length="64" />
+		<column name="filesize_new" type="int" />
+		<column name="filesize_new_type" type="char" length="2" />
+		<column name="hash_new" type="varchar" length="64" />
+		<column name="action" type="int" />
+		<column name="IsStream" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_FilemonHistory" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESSysinfoMemory">
+		<column name="computer" type="int" />
+		<column name="capacity" type="int" />
+		<column name="speed" type="int" />
+		<column name="formfactor" type="varchar" length="16" />
+		<column name="memorytype" type="varchar" length="32" />
+		<column name="devicelocator" type="varchar" length="64" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_SysinfoMemory" type="CLUSTERED" fillfactor="80">
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESSysinfoNIC">
+		<column name="computer" type="int" />
+		<column name="adapterindex" type="int" />
+		<column name="macaddress" type="char" length="17" />
+		<column name="devicedescription" type="varchar" length="128" />
+		<column name="adaptername" type="varchar" length="40" />
+		<column name="ipaddressv4" type="varchar" length="15" />
+		<column name="linkspeed" type="int" />
+		<column name="isUp" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_SysinfoNIC" type="CLUSTERED" fillfactor="80">
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESSysinfoDiskCtrl">
+		<column name="computer" type="int" />
+		<column name="adaptername" type="varchar" length="64" />
+		<column name="device_id" type="varchar" length="96" />
+		<column name="driver" type="varchar" length="32" />
+		<column name="manufacturer" type="varchar" length="48" />
+		<column name="type" type="varchar" length="4" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_SysinfoDiskCtrl" type="CLUSTERED" fillfactor="80">
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESPerformanceMapping">
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPerformanceMapping_ESEventlogComputer</fkey_constraint>
+		</column>
+        <column name="name" type="int" key="foreign">
+			<fkey_table>ESPerformanceName</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPerformanceMapping_ESPerformanceName</fkey_constraint>
+		</column>
+		<column name="counter" type="int" key="foreign">
+			<fkey_table>ESPerformanceCounter</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPerformanceMapping_ESPerformanceCounter</fkey_constraint>
+		</column>
+		<column name="instance" type="int" key="foreign">
+			<fkey_table>ESPerformanceInstance</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPerformanceMapping_ESPerformanceInstance</fkey_constraint>
+		</column>
+		<column name="alert_type" type="int" />
+		<column name="alert_limit" type="int" />
+		<column name="alert_limit_float" type="float" />
+		<column name="groupname" type="int" key="foreign">
+			<fkey_table>ESEventlogGroup</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESPerformanceMapping_ESEventlogGroup</fkey_constraint>
+		</column>
+		<column name="usefloat" type="int" />
+		<column name="data_last_float" type="float" />
+		<column name="data_last_int" type="bigint" />
+		<column name="description" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_ESPerformanceMapping" type="CLUSTERED" fillfactor="80">
+			<field name="computername" />
+		</index>
+		<index name="IDX_ES_PerformanceMapping_Unique" type="NONCLUSTERED" unique="true">
+			<field name="computername" />
+			<field name="name" />
+			<field name="counter" />
+			<field name="instance" />
+		</index>
+	</table>
+
+	<table name="ESDiskspaceStatus">
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESDiskspaceStatus_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="logicaldrive" type="varchar" length="255" />
+		<column name="spacefree" type="int" />
+		<column name="spacetotal" type="int" />
+		<column name="recorddate" type="datetime" />
+		<column name="logicaldrivename" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESDiskspaceStatus_ESStrings</fkey_constraint>
+		</column>
+		<column name="groupname" type="int" key="foreign">
+			<fkey_table>ESEventlogGroup</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESDiskspaceStatus_ESEventlogGroup</fkey_constraint>
+		</column>
+		<column name="daysUntilFull" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_DiskspaceStatus" action="DROP" />
+		<index name="IDX_ES_DiskspaceStatus_LogicalDrives" type="NONCLUSTERED" fillfactor="50">
+			<field name="computername" />
+			<field name="logicaldrive" />
+		</index>
+	</table>
+
+	<table name="ESEventlogAccountDomain">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="255" />
+		<column name="ESTrackingAccountGroups" type="int" />
+		<column name="ESTrackingAccountGroupsCaller" type="int" />
+		<column name="ESTrackingAccountComputersCli" type="int" />
+		<column name="ESTrackingAccountComputersClr" type="int" />
+		<column name="ESTrackingAccountUsers" type="int" />
+		<column name="ESTrackingAccountUsersCaller" type="int" />
+		<column name="ESTrackingPolicy" type="int" />
+		<column name="ESTrackingPolicyCaller" type="int" />
+		<column name="ESTrackingAuthFailure" type="int" />
+		<column name="ESTrackingLogonAuth" type="int" />
+		<column name="ESTrackingLogonByType" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogAccountDomainGp">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="255" />
+		<column name="ESTrackingAccountGroups" type="int" />
+		<column name="ESTrackingAccountComputersCli" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogAccountGroup">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="128" />
+		<column name="ESTrackingAccountGroups" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogAccountUser">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="255" />
+		<column name="ESTrackingAccountGroups" type="int" />
+		<column name="ESTrackingAccountGroupsCaller" type="int" />
+		<column name="ESTrackingAccountComputersClr" type="int" />
+		<column name="ESTrackingAccountUsers" type="int" />
+		<column name="ESTrackingAccountUsersCaller" type="int" />
+		<column name="ESTrackingPolicyCaller" type="int" />
+		<column name="ESTrackingAuthFailure" type="int" />
+		<column name="ESTrackingLogonAuth" type="int" />
+		<column name="ESTrackingLogonByType" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogSID">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="64" />
+		<column name="ESTrackingAccountGroups" type="int" />
+		<column name="ESTrackingAccountGroupsCaller" type="int" />
+		<column name="ESTrackingAccountComputersCli" type="int" />
+		<column name="ESTrackingAccountComputersClr" type="int" />
+		<column name="ESTrackingAccountUsers" type="int" />
+		<column name="ESTrackingAccountUsersCaller" type="int" />
+		<column name="ESTrackingPolicy" type="int" />
+		<column name="ESTrackingPolicyCaller" type="int" />
+		<column name="ESTrackingLogonByType" type="int" />
+		<column name="ESTrackingLogonAuth" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogUserDN">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="text" length="1024" />
+		<column name="ESTrackingAccountGroups" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESObjectTracking">
+		<column name="recorddate_unix" type="int" />
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESObjectTracking_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="filename" type="int" key="foreign">
+			<fkey_table>ESEventlogFilename</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESObjectTracking_ESEventlogFilename</fkey_constraint>
+		</column>
+		<column name="filepath" type="int" key="foreign">
+			<fkey_table>ESEventlogFilepath</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESObjectTracking_ESEventlogFilepath</fkey_constraint>
+		</column>
+		<column name="username" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESObjectTracking_ESEventlogUser</fkey_constraint>
+		</column>
+		<column name="LogonID" type="varchar" length="16" />
+		<column name="caller_filename" type="int" key="foreign">
+			<fkey_table>ESEventlogFilename</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESObjectTracking_ESEventlogFilename_Caller</fkey_constraint>
+		</column>
+		<column name="caller_filepath" type="int" key="foreign">
+			<fkey_table>ESEventlogFilepath</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESObjectTracking_ESEventlogFilepath_Caller</fkey_constraint>
+		</column>
+		<column name="caller_pid" type="int" />
+		<column name="Action" type="int" />
+		<column name="AccessMask" type="int" />
+		<column name="Verified" type="int" />
+		<column name="eventnumber" type="bigint" />
+		<column name="filename_new" type="int" key="foreign">
+			<fkey_table>ESEventlogFilename</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESObjectTracking_ESEventlogFilename_New</fkey_constraint>
+		</column>
+		<column name="filepath_new" type="int" key="foreign">
+			<fkey_table>ESEventlogFilepath</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESObjectTracking_ESEventlogFilepath_New</fkey_constraint>
+		</column>
+		<column name="SourceComputer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESObjectTracking_ESEventlogComputer_Source</fkey_constraint>
+		</column>
+		<column name="SourceIP" type="int" key="foreign">
+			<fkey_table>ESIPAddress</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESObjectTracking_ESIPAddress</fkey_constraint>
+		</column>
+		<column name="bReadData" type="int" />
+		<column name="bReadAttributes" type="int" />
+		<column name="bReadEA" type="int" />
+		<column name="bWriteData" type="int" />
+		<column name="bAppendData" type="int" />
+		<column name="bWriteAttributes" type="int" />
+		<column name="bWriteEA" type="int" />
+		<column name="bDelete" type="int" />
+		<column name="bChangePermissions" type="int" />
+		<column name="bSetOwner" type="int" />
+		<column name="Checksum" type="varchar" length="64" />
+		<column name="recordtype" type="int" />
+		<column name="VerifiedOperational" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_ObjectTracking" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESTrackingAccountComputers">
+		<column name="recorddate_unix" type="int" />
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountComputers_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="eventnumber" type="bigint" />
+		<column name="eventid" type="int" />
+		<column name="computer_operation" type="int" />
+		<column name="TargetAccount" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountComputers_ESEventlogComputer_Target</fkey_constraint>
+		</column>
+		<column name="TargetDomain" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountDomain</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountComputers_ESEventlogAccountDomain_Target</fkey_constraint>
+		</column>
+		<column name="TargetAccountID" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountDomainGp</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountComputers_ESEventlogAccountDomainGp</fkey_constraint>
+		</column>
+		<column name="TargetAccountSID" type="int" key="foreign">
+			<fkey_table>ESEventlogSID</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountComputers_ESEventlogSID_Target</fkey_constraint>
+		</column>
+		<column name="CallerUser" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountComputers_ESEventlogAccountUser_Caller</fkey_constraint>
+		</column>
+		<column name="CallerDomain" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountDomain</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountComputers_ESEventlogAccountDomain_Caller</fkey_constraint>
+		</column>
+		<column name="CallerLogonID" type="varchar" length="16" />
+		<column name="CallerAccountID" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountComputers_ESEventlogUser_Caller</fkey_constraint>
+		</column>
+		<column name="CallerAccountSID" type="int" key="foreign">
+			<fkey_table>ESEventlogSID</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountComputers_ESEventlogSID_Caller</fkey_constraint>
+		</column>
+		<column name="ComputerTypeChange" type="int" />
+		<column name="SourceComputer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountComputers_ESEventlogComputer_Source</fkey_constraint>
+		</column>
+		<column name="SourceIP" type="int" key="foreign">
+			<fkey_table>ESIPAddress</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountComputers_ESIPAddress</fkey_constraint>
+		</column>
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_TrackingAccountComputers" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESTrackingAccountGroups">
+		<column name="recorddate_unix" type="int" />
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountGroups_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="ComputerProductType" type="varchar" length="3" />
+		<column name="eventnumber" type="bigint" />
+		<column name="eventid" type="int" />
+		<column name="group_operation" type="int" />
+		<column name="group_type" type="int" />
+		<column name="group_scope" type="int" />
+		<column name="TargetAccount" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountGroup</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountGroups_ESEventlogAccountGroup</fkey_constraint>
+		</column>
+		<column name="TargetDomain" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountDomain</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountGroups_ESEventlogAccountDomain_Target</fkey_constraint>
+		</column>
+		<column name="TargetAccountID" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountDomainGp</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountGroups_ESEventlogAccountDomainGp</fkey_constraint>
+		</column>
+		<column name="TargetAccountSID" type="int" key="foreign">
+			<fkey_table>ESEventlogSID</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountGroups_ESEventlogSID_Target</fkey_constraint>
+		</column>
+		<column name="CallerUser" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountGroups_ESEventlogAccountUser_Caller</fkey_constraint>
+		</column>
+		<column name="CallerDomain" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountDomain</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountGroups_ESEventlogAccountDomain_Caller</fkey_constraint>
+		</column>
+		<column name="CallerLogonID" type="varchar" length="16" />
+		<column name="CallerAccountID" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountGroups_ESEventlogUser_Caller</fkey_constraint>
+		</column>
+		<column name="CallerAccountSID" type="int" key="foreign">
+			<fkey_table>ESEventlogSID</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountGroups_ESEventlogSID_Caller</fkey_constraint>
+		</column>
+		<column name="MemberName" type="int" key="foreign">
+			<fkey_table>ESEventlogUserDN</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountGroups_ESEventlogUserDN</fkey_constraint>
+		</column>
+		<column name="MemberAccountID" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountGroups_ESEventlogUser_Member</fkey_constraint>
+		</column>
+		<column name="GroupTypeChange" type="int" />
+		<column name="SourceComputer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountGroups_ESEventlogComputer_Source</fkey_constraint>
+		</column>
+		<column name="SourceIP" type="int" key="foreign">
+			<fkey_table>ESIPAddress</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountGroups_ESIPAddress</fkey_constraint>
+		</column>
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_TrackingAccountGroups" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESTrackingAccountUsers">
+		<column name="recorddate_unix" type="int" />
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountUsers_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="eventnumber" type="bigint" />
+		<column name="eventid" type="int" />
+		<column name="user_operation" type="int" />
+		<column name="TargetAccount" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountUsers_ESEventlogAccountUser_Target</fkey_constraint>
+		</column>
+		<column name="TargetDomain" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountDomain</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountUsers_ESEventlogAccountDomain_Target</fkey_constraint>
+		</column>
+		<column name="TargetAccountID" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountUsers_ESEventlogUser_Target</fkey_constraint>
+		</column>
+		<column name="TargetAccountSID" type="int" key="foreign">
+			<fkey_table>ESEventlogSID</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountUsers_ESEventlogSID_Target</fkey_constraint>
+		</column>
+		<column name="CallerComputerName" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountUsers_ESEventlogComputer_Caller</fkey_constraint>
+		</column>
+		<column name="CallerUser" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountUsers_ESEventlogAccountUser_Caller</fkey_constraint>
+		</column>
+		<column name="CallerDomain" type="int" />
+		<column name="CallerAccountID" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountUsers_ESEventlogUser_Caller</fkey_constraint>
+		</column>
+		<column name="CallerAccountSID" type="int" key="foreign">
+			<fkey_table>ESEventlogSID</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountUsers_ESEventlogSID_Caller</fkey_constraint>
+		</column>
+		<column name="CallerLogonID" type="varchar" length="16" />
+		<column name="UserTypeChange" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountUsers_ESStrings</fkey_constraint>
+		</column>
+		<column name="SourceComputer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountUsers_ESEventlogComputer_Source</fkey_constraint>
+		</column>
+		<column name="SourceIP" type="int" key="foreign">
+			<fkey_table>ESIPAddress</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAccountUsers_ESIPAddress</fkey_constraint>
+		</column>
+		<column name="ComputerProductType" type="varchar" length="3" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_TrackingAccountUsers" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESVersion">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="recorddate" type="datetime" />
+		<column name="product" type="varchar" length="128" />
+		<column name="build" type="varchar" length="32" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESEventlogGUID">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="64" />
+		<column name="ESTrackingPolicy" type="int" />
+		<column name="ESTrackingLogonAuth" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_EventlogGUID" type="NONCLUSTERED">
+			<field name="name" />
+		</index>
+	</table>
+
+	<table name="ESEventlogEmail">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="128" />
+		<column name="ESTrackingAuthFailure" type="int" />
+		<column name="ESTrackingLogonAuth" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESTrackingAuthFailure">
+		<column name="recorddate_unix" type="int" />
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAuthFailure_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="ComputerProductType" type="varchar" length="3" />
+		<column name="eventnumber" type="bigint" />
+		<column name="eventid" type="int" />
+		<column name="Protocol" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAuthFailure_ESStrings_Protocol</fkey_constraint>
+		</column>
+		<column name="AuthenticationType" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAuthFailure_ESStrings_AuthType</fkey_constraint>
+		</column>
+		<column name="SourceComputer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAuthFailure_ESEventlogComputer_Source</fkey_constraint>
+		</column>
+		<column name="SourceIP" type="int" key="foreign">
+			<fkey_table>ESIPAddress</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAuthFailure_ESIPAddress</fkey_constraint>
+		</column>
+		<column name="SourcePort" type="int" />
+		<column name="TargetAccount" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAuthFailure_ESEventlogAccountUser</fkey_constraint>
+		</column>
+		<column name="TargetDomain" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountDomain</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAuthFailure_ESEventlogAccountDomain</fkey_constraint>
+		</column>
+		<column name="TargetAccountID" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAuthFailure_ESEventlogUser</fkey_constraint>
+		</column>
+		<column name="FailureReason" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingAuthFailure_ESStrings_FailureReason</fkey_constraint>
+		</column>
+		<column name="FailureReasonNum" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_TrackingAuthFailure" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+		<index name="IDX_ES_TrackingAuthFailure_Computer" fillfactor="80">
+			<field name="computername" />
+		</index>
+	</table>
+
+	<table name="ESTrackingLogonAuth">
+		<column name="recorddate_unix" type="int" />
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonAuth_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="ComputerProductType" type="varchar" length="3" />
+		<column name="eventnumber" type="bigint" />
+		<column name="EventID" type="int" />
+		<column name="AuthenticationType" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonAuth_ESStrings_AuthType</fkey_constraint>
+		</column>
+		<column name="Protocol" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonAuth_ESStrings_Protocol</fkey_constraint>
+		</column>
+		<column name="TargetAccount" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonAuth_ESEventlogAccountUser</fkey_constraint>
+		</column>
+		<column name="TargetDomain" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountDomain</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonAuth_ESEventlogAccountDomain</fkey_constraint>
+		</column>
+		<column name="TargetEmail" type="int" key="foreign">
+			<fkey_table>ESEventlogEmail</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonAuth_ESEventlogEmail</fkey_constraint>
+		</column>
+		<column name="LogonGUID" type="int" key="foreign">
+			<fkey_table>ESEventlogGUID</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonAuth_ESEventlogGUID</fkey_constraint>
+		</column>
+		<column name="TargetAccountSID" type="int" key="foreign">
+			<fkey_table>ESEventlogSID</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonAuth_ESEventlogSID</fkey_constraint>
+		</column>
+		<column name="ServiceID" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonAuth_ESEventlogUser</fkey_constraint>
+		</column>
+		<column name="SourceComputer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonAuth_ESEventlogComputer_Source</fkey_constraint>
+		</column>
+		<column name="SourcePort" type="int" />
+		<column name="SourceIP" type="int" key="foreign">
+			<fkey_table>ESIPAddress</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonAuth_ESIPAddress</fkey_constraint>
+		</column>
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_TrackingLogonAuth" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+		<index name="IDX_ES_TrackingLogonAuth_Computer" fillfactor="80">
+			<field name="computername" />
+		</index>
+	</table>
+
+	<table name="ESTrackingLogonByType">
+		<column name="recorddate_unix" type="int" />
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonByType_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="ComputerProductType" type="varchar" length="3" />
+		<column name="eventnumber" type="bigint" />
+		<column name="EventID" type="int" />
+		<column name="LogonAction" type="int" />
+		<column name="LogonType" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonByType_ESStrings_LogonType</fkey_constraint>
+		</column>
+		<column name="TargetAccount" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonByType_ESEventlogAccountUser</fkey_constraint>
+		</column>
+		<column name="TargetDomain" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountDomain</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonByType_ESEventlogAccountDomain</fkey_constraint>
+		</column>
+		<column name="TargetAccountID" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonByType_ESEventlogUser</fkey_constraint>
+		</column>
+		<column name="TargetAccountSID" type="int" key="foreign">
+			<fkey_table>ESEventlogSID</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonByType_ESEventlogSID</fkey_constraint>
+		</column>
+		<column name="LogonProcess" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonByType_ESStrings_LogonProcess</fkey_constraint>
+		</column>
+		<column name="LogonID" type="varchar" length="16" />
+		<column name="SourceIP" type="int" key="foreign">
+			<fkey_table>ESIPAddress</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonByType_ESIPAddress</fkey_constraint>
+		</column>
+		<column name="SourceComputer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonByType_ESEventlogComputer_Source</fkey_constraint>
+		</column>
+		<column name="SourcePort" type="int" />
+		<column name="FailureReason" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingLogonByType_ESStrings_FailureReason</fkey_constraint>
+		</column>
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_TrackingLogonByType" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+		<index name="IDX_ES_TrackingLogonByType_Computer" fillfactor="80">
+			<field name="computername" />
+		</index>
+	</table>
+
+	<table name="ESTrackingPolicy">
+		<column name="recorddate_unix" type="int" />
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingPolicy_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="ComputerProductType" type="varchar" length="3" />
+		<column name="eventnumber" type="bigint" />
+		<column name="eventid" type="int" />
+		<column name="policy_type" type="int" />
+		<column name="operation_type" type="int" />
+		<column name="CallerUser" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingPolicy_ESEventlogAccountUser</fkey_constraint>
+		</column>
+		<column name="CallerDomain" type="int" key="foreign">
+			<fkey_table>ESEventlogAccountDomain</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingPolicy_ESEventlogAccountDomain</fkey_constraint>
+		</column>
+		<column name="CallerAccountID" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingPolicy_ESEventlogUser</fkey_constraint>
+		</column>
+		<column name="CallerAccountSID" type="int" key="foreign">
+			<fkey_table>ESEventlogSID</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESTrackingPolicy_ESEventlogSID</fkey_constraint>
+		</column>
+		<column name="CallerLogonID" type="varchar" length="16" />
+		<column name="SourceComputer" type="int" />
+		<column name="SourceIP" type="int" />
+		<column name="UserLogonRightShort" type="int" />
+		<column name="UserLogonRightLong" type="int" />
+		<column name="TargetAccountID" type="int" />
+		<column name="TargetAccountSID" type="int" />
+		<column name="TargetDomain" type="int" />
+		<column name="TargetDomainID" type="int" />
+		<column name="TrustType" type="int" />
+		<column name="TrustDirection" type="int" />
+		<column name="TrustAttributes" type="int" />
+		<column name="TrustSIDFiltering" type="int" />
+		<column name="apSystemS" type="int" />
+		<column name="apSystemF" type="int" />
+		<column name="apLogonLogoffS" type="int" />
+		<column name="apLogonLogoffF" type="int" />
+		<column name="apObjectAccessS" type="int" />
+		<column name="apObjectAccessF" type="int" />
+		<column name="apPrivilegeUseS" type="int" />
+		<column name="apPrivilegeUseF" type="int" />
+		<column name="apDetailedTrackingS" type="int" />
+		<column name="apDetailedTrackingF" type="int" />
+		<column name="apPolicyChangeS" type="int" />
+		<column name="apPolicyChangeF" type="int" />
+		<column name="apAccountManagementS" type="int" />
+		<column name="apAccountManagementF" type="int" />
+		<column name="apDirectoryServiceAccessS" type="int" />
+		<column name="apDirectoryServiceAccessF" type="int" />
+		<column name="apAccountLogonS" type="int" />
+		<column name="apAccountLogonF" type="int" />
+		<column name="apCategory" type="int" />
+		<column name="apSubcategory" type="int" />
+		<column name="apSubcategoryGUID" type="int" />
+		<column name="apChanges" type="int" />
+		<column name="kerbChanges" type="int" />
+		<column name="dpMinPasswordAge" type="int" />
+		<column name="dpMaxPasswordAge" type="int" />
+		<column name="dpForceLogoff" type="int" />
+		<column name="dpLockoutThreshold" type="int" />
+		<column name="dpLockoutObservationWindow" type="int" />
+		<column name="dpLockoutDuration" type="int" />
+		<column name="dpPasswordProperties" type="int" />
+		<column name="dpMinPasswordLength" type="int" />
+		<column name="dpMinPasswordHistoryLength" type="int" />
+		<column name="dpMachineAccountQuota" type="int" />
+		<column name="dpMixedDomainMode" type="int" />
+		<column name="dpDomainBehaviorVersion" type="int" />
+		<column name="dpChangeType" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_TrackingPolicy" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESUptimeHistory">
+		<column name="recorddate" type="datetime" />
+		<column name="groupname" type="int" key="foreign">
+			<fkey_table>ESEventlogGroup</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESUptimeHistory_ESEventlogGroup</fkey_constraint>
+		</column>
+		<column name="computername" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESUptimeHistory_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="uptime" type="int" />
+		<column name="calleruser" type="int" key="foreign">
+			<fkey_table>ESEventlogUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESUptimeHistory_ESEventlogUser</fkey_constraint>
+		</column>
+		<column name="callerprocess" type="int" key="foreign">
+			<fkey_table>ESFile</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESUptimeHistory_ESFile</fkey_constraint>
+		</column>
+		<column name="reasontitle" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESUptimeHistory_ESStringsTitle</fkey_constraint>
+		</column>
+		<column name="shutdowntype" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESUptimeHistory_ESStringsType</fkey_constraint>
+		</column>
+		<column name="reasonmajor" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESUptimeHistory_ESStringsMajor</fkey_constraint>
+		</column>
+		<column name="reasonminor" type="int" key="foreign">
+			<fkey_table>ESStrings</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESUptimeHistory_ESStringsMinor</fkey_constraint>
+		</column>
+        <column name="comment" type="varchar" length="255" />
+        <column name="isplanned" type="int" />
+
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_UptimeHistory" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESEventlogPackage">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="128" />
+		<column name="ESActionTriggerHistory" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESAction">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="128" />
+		<column name="ESActionTriggerHistory" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESActionRecipients">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="text" length="1024" />
+		<column name="ESActionTriggerHistory" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+	</table>
+
+	<table name="ESActionTriggerHistory">
+		<column name="recorddate" type="datetime" />
+		<column name="computername" type="int" />
+		<column name="Action" type="int" />
+		<column name="ActionRecipients" type="int" />
+		<column name="ActionType" type="int" />
+		<column name="EventLogPackage" type="int" />
+		<column name="EventLogFilter" type="int" />
+		<column name="EventLog" type="int" />
+		<column name="EventID" type="int" />
+		<column name="EventSource" type="int" />
+		<column name="EventRecordNumber" type="bigint" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_ActionTriggerHistory" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESReportHistory">
+		<column name="recorddate" type="datetime" />
+		<column name="search_id" type="int" />
+		<column name="username" type="varchar" length="50" />
+		<column name="load_time" type="int" />
+		<column name="recordcount" type="int" />
+		<column name="view_time" type="int" />
+		<column name="report" type="varchar" length="255" />
+		<permissions user="eventsentry_web">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+			<permission>DELETE</permission>
+		</permissions>
+	</table>
+
+	<table name="ESSysinfo">
+	    <view name="ESSysinfoV">
+	        <column name="computer" />
+	        <column name="Uptime" />
+	        <column name="UptimeMax" />
+	        <column name="UptimeTimestamp" />
+	        <column name="lastserverinventoryupdate" />
+
+            <permissions user="eventsentry_svc">
+				<permission>SELECT</permission>
+				<permission>UPDATE</permission>
+			</permissions>
+	    </view>
+
+		<column name="recorddate" type="datetime" />
+		<column name="groupname" type="int" />
+		<column name="computer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSysinfo_ESEventlogComputer</fkey_constraint>
+			<permissions user="eventsentry_svc">
+				<permission>SELECT</permission>
+			</permissions>
+		</column>
+		<column name="OS" type="varchar" length="128" />
+		<column name="SystemRoot" type="int" />
+		<column name="Manufacturer" type="varchar" length="64" />
+		<column name="Model" type="varchar" length="128" />
+		<column name="TotalMemory" type="int" />
+		<column name="CPUCount" type="int" />
+		<column name="CPUSpeed" type="int" />
+		<column name="CPUDescription" type="varchar" length="64" />
+		<column name="RegisteredOwner" type="varchar" length="128" />
+		<column name="RegisteredCompany" type="varchar" length="128" />
+		<column name="BiosSerial" type="varchar" length="128" />
+		<column name="BiosVersion" type="varchar" length="48" />
+		<column name="DisplayColorDepth" type="int" />
+		<column name="DisplayHorizontalRes" type="int" />
+		<column name="DisplayVerticalRes" type="int" />
+		<column name="DisplayAdapter" type="varchar" length="64" />
+		<column name="MemMaxDevices" type="int" />
+		<column name="MemMaxCapacity" type="int" />
+		<column name="MemErrorCorrection" type="varchar" length="32" />
+		<column name="CountFloppy" type="int" />
+		<column name="CountCDROM" type="int" />
+		<column name="CountDVD" type="int" />
+		<column name="CountRemovable" type="int" />
+		<column name="Uptime" type="int">
+			<permissions user="eventsentry_svc">
+				<permission>UPDATE</permission>
+				<permission>SELECT</permission>
+			</permissions>
+		</column>
+		<column name="CPUCountPhysical" type="int" />
+		<column name="CPUCountLogical" type="int" />
+		<column name="CPUMultiCore" type="int" />
+		<column name="CPUHyperThreading" type="int" />
+		<column name="CPUFamily" type="int" />
+		<column name="CPUModel" type="int" />
+		<column name="CPUStepping" type="int" />
+		<column name="OSEdition" type="varchar" length="128" />
+		<column name="ProductType" type="varchar" length="3" />
+		<column name="IsTerminalServer" type="int" />
+		<column name="IsServerCore" type="int" />
+		<column name="IsHyperV" type="int" />
+		<column name="ServicePackNum" type="int" />
+		<column name="Is64Bit" type="int" />
+		<column name="DisplayMonitorCount" type="int" />
+		<column name="OSInstallDate" type="datetime" />
+		<column name="IsVM" type="int" />
+		<column name="VMDescription" type="varchar" length="64" />
+		<column name="UptimeMax" type="int">
+			<permissions user="eventsentry_svc">
+				<permission>UPDATE</permission>
+				<permission>SELECT</permission>
+			</permissions>
+		</column>
+		<column name="UptimeTimestamp" type="datetime">
+			<permissions user="eventsentry_svc">
+				<permission>UPDATE</permission>
+			</permissions>
+		</column>
+		<column name="ESAgentVersion" type="varchar" length="16" />
+		<column name="CPUSupportsVirtualization" type="int" />
+		<column name="chassistype" type="varchar" length="64" />
+		<column name="uaclevel" type="int" />
+		<column name="hasdockingstation" type="int" />
+		<column name="timeZoneUtcOffset" type="int" />
+		<column name="timeZoneDescription" type="varchar" length="96" />
+		<column name="lastserverinventoryupdate" type="datetime">
+			<permissions user="eventsentry_svc">
+				<permission>UPDATE</permission>
+			</permissions>
+		</column>
+		<column name="isSnmp" type="int" />
+		<column name="snmpSysObjectId" type="varchar" length="2048" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_Sysinfo_Unique" type="CLUSTERED" unique="true" fillfactor="80">
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESSysinfoServerPSU">
+	    <column name="computer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSysinfoServerPSU_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="name" type="varchar" length="64" />
+		<column name="status" type="varchar" length="16" />
+		<column name="statusdescription" type="varchar" length="255" />
+
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+
+		<index name="IDX_ESSysinfoServerPSU_Computer" type="NONCLUSTERED" unique="false" fillfactor="80">
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESSysinfoServerFan">
+	    <column name="computer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSysinfoServerFan_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="name" type="varchar" length="64" />
+		<column name="status" type="varchar" length="16" />
+		<column name="statusdescription" type="varchar" length="255" />
+		<column name="speed" type="int" />
+
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+
+		<index name="IDX_ESSysinfoServerFan_Computer" type="NONCLUSTERED" unique="false" fillfactor="80">
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESSysinfoServerTempSensor">
+	    <column name="computer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSysinfoServerTempSensor_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="name" type="varchar" length="64" />
+		<column name="status" type="varchar" length="16" />
+		<column name="statusdescription" type="varchar" length="255" />
+		<column name="temperature" type="int" />
+
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+
+		<index name="IDX_ESSysinfoServerTempSensor_Computer" type="NONCLUSTERED" unique="false" fillfactor="80">
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESSysinfoServerRemoteMgmt">
+	    <column name="computer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSysinfoServerRemoteMgmt_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="name" type="varchar" length="128" />
+		<column name="status" type="varchar" length="16" />
+		<column name="statusdescription" type="varchar" length="255" />
+		<column name="accessinfo" type="varchar" length="40" />
+
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+
+		<index name="IDX_ESSysinfoServerRemoteMgmt_Computer" type="NONCLUSTERED" unique="false" fillfactor="80">
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESSysinfoServerScsiCtrl">
+	    <column name="computer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSysinfoServerScsiCtrl_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="controllerid" type="int" />
+		<column name="connectors" type="int" />
+		<column name="name" type="varchar" length="128" />
+		<column name="status" type="varchar" length="16" />
+		<column name="firmware" type="varchar" length="64" />
+		<column name="cachesize" type="varchar" length="16" />
+
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+
+		<index name="IDX_ESSysinfoServerScsiCtrl_Computer" type="NONCLUSTERED" unique="false" fillfactor="80">
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESSysinfoServerDiskPhysic">
+	    <column name="computer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSysinfoServerDiskPhysic_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="id" type="varchar" length="32" />
+		<column name="controllerid" type="int" />
+		<column name="logicaldiskid" type="int" />
+		<column name="name" type="varchar" length="128" />
+		<column name="status" type="varchar" length="32" />
+		<column name="state" type="varchar" length="32" />
+		<column name="busprotocol" type="varchar" length="32" />
+		<column name="manufactureDate" type="varchar" length="32" />
+		<column name="model" type="varchar" length="64" />
+		<column name="rotationalspeed" type="varchar" length="16" />
+		<column name="capacity" type="varchar" length="48" />
+		<column name="transfermode" type="varchar" length="32" />
+		<column name="transferspeed" type="varchar" length="32" />
+		<column name="revision" type="varchar" length="32" />
+		<column name="partnumber" type="varchar" length="64" />
+		<column name="serialnumber" type="varchar" length="64" />
+		<column name="failurepredicted" type="varchar" length="16" />
+
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+
+		<index name="IDX_ESSysinfoServerDiskPhysic_Computer" type="NONCLUSTERED" unique="false" fillfactor="80">
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESSysinfoServerDiskLogic">
+	    <column name="computer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSysinfoServerDiskLogic_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="id" type="int" />
+		<column name="controllerid" type="int" />
+		<column name="status" type="varchar" length="32" />
+		<column name="state" type="varchar" length="32" />
+		<column name="name" type="varchar" length="128" />
+		<column name="disksize" type="varchar" length="64" />
+		<column name="devicename" type="varchar" length="64" />
+		<column name="stripesize" type="varchar" length="32" />
+		<column name="redundancy" type="varchar" length="64" />
+
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+
+		<index name="IDX_ESSysinfoServerDiskLogic_Computer" type="NONCLUSTERED" unique="false" fillfactor="80">
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESSysinfoWarranty">
+	    <column name="computer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSysinfoWarranty_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="provider" type="varchar" length="32" />
+		<column name="serviceLevel" type="varchar" length="128" />
+		<column name="warrantyStatus" type="varchar" length="32" />
+		<column name="startDate" type="datetime" />
+		<column name="endDate" type="datetime" />
+		<column name="recorddate" type="datetime" />
+
+		<permissions user="eventsentry_web">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+
+		<index name="IDX_ESSysinfoWarranty_Computer" type="NONCLUSTERED" unique="false" fillfactor="80">
+			<field name="computer" />
+		</index>
+		<index name="IDX_ESSysinfoWarranty_EndDate" type="NONCLUSTERED" unique="false" fillfactor="80">
+			<field name="endDate" />
+		</index>
+	</table>
+
+	<table name="ESSnmpCommunityUser">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="255" />
+		<column name="ESSnmpTrap" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_SnmpCommunityUser" type="NONCLUSTERED" unique="true" fillfactor="50">
+			<field name="name" />
+		</index>
+	</table>
+
+	<table name="ESSnmpTrapId">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="255" />
+		<column name="ESSnmpTrap" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_SnmpTrapId" type="NONCLUSTERED" unique="true" fillfactor="50">
+			<field name="name" />
+		</index>
+	</table>
+
+	<table name="ESSnmpTrapOid">
+		<column name="id" type="int" null="false" autoincrement="true" key="primary" />
+		<column name="name" type="varchar" length="255" />
+		<column name="ESSnmpTrap" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_SnmpTrapOid" type="NONCLUSTERED" unique="true" fillfactor="50">
+			<field name="name" />
+		</index>
+	</table>
+
+	<table name="ESSnmpTraps">
+		<column name="recorddate" type="datetime" />
+		<column name="receiver_hostname" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSnmpTraps_ESEventlogComputer_Receiver</fkey_constraint>
+		</column>
+		<column name="sender_hostname" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSnmpTraps_ESEventlogComputer_Sender</fkey_constraint>
+		</column>
+		<column name="sender_ip" type="int" key="foreign">
+			<fkey_table>ESIPAddress</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSnmpTraps_ESIPAddress_Sender</fkey_constraint>
+		</column>
+		<column name="communityuser" type="int" key="foreign">
+			<fkey_table>ESSnmpCommunityUser</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSnmpTraps_ESSnmpCommunityUser</fkey_constraint>
+		</column>
+		<column name="version" type="int" />
+		<column name="trap_id" type="int" key="foreign">
+			<fkey_table>ESSnmpTrapId</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSnmpTraps_ESSnmpTrapId</fkey_constraint>
+		</column>
+		<column name="trap_oid" type="int" key="foreign">
+			<fkey_table>ESSnmpTrapOid</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSnmpTraps_ESSnmpTrapOid</fkey_constraint>
+		</column>
+		<column name="bindings" type="text" length="7400" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_SnmpTraps" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+	<table name="ESSysinfoPhysicalDrive">
+		<column name="computer" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESSysinfoPhysicalDrive_ESEventlogComputer</fkey_constraint>
+		</column>
+		<column name="model" type="varchar" length="128" />
+		<column name="deviceId" type="varchar" length="64" />
+		<column name="firmwareRevision" type="varchar" length="32" />
+		<column name="serialNumber" type="varchar" length="128" />
+		<column name="driveSize" type="int" />
+		<column name="status" type="varchar" length="16" />
+		<column name="interface" type="varchar" length="16" />
+		<column name="partitions" type="int" />
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>DELETE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_SysinfoPhysicalDrive" type="CLUSTERED" fillfactor="80">
+			<field name="computer" />
+		</index>
+	</table>
+
+	<table name="ESMacAddress">
+	    <column name="id" type="int" null="false" autoincrement="true" key="primary" />
+	    <column name="name" type="varchar" length="64" />
+	    <column name="ESArp" type="int" />
+
+        <permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+
+        <index name="IDX_ES_MacAddress" type="NONCLUSTERED" unique="true" fillfactor="80">
+			<field name="id" />
+		</index>
+	</table>
+
+	<table name="ESMacAddressVendor">
+	    <column name="id" type="int" null="false" autoincrement="true" key="primary" />
+	    <column name="name" type="varchar" length="196" />
+	    <column name="ESArp" type="int" />
+
+        <permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>SELECT</permission>
+			<permission>UPDATE</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+
+        <index name="IDX_ES_MacAddressVendor" type="NONCLUSTERED" unique="true" fillfactor="80">
+			<field name="id" />
+		</index>
+	</table>
+
+    <table name="ESArpHistory">
+		<column name="recorddate" type="datetime" />
+		<column name="receiver_hostname" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESArpHistory_ESEventlogComputer_Receiver</fkey_constraint>
+		</column>
+		<column name="interface_mac" type="int" key="foreign">
+			<fkey_table>ESMacAddress</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESArpHistory_ESMacAddress_Interface</fkey_constraint>
+		</column>
+		<column name="discover_mac" type="int" key="foreign">
+			<fkey_table>ESMacAddress</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESArpHistory_ESMacAddress_Discover</fkey_constraint>
+		</column>
+		<column name="discover_ip" type="int" key="foreign">
+			<fkey_table>ESIPAddress</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESArpHistory_ESIPAddress</fkey_constraint>
+		</column>
+		<column name="discover_mac_vendor" type="int" key="foreign">
+			<fkey_table>ESMacAddressVendor</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESArpHistory_ESMacAddressVendor</fkey_constraint>
+		</column>
+
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_ArpHistory" type="CLUSTERED" fillfactor="80">
+			<field name="recorddate" />
+		</index>
+	</table>
+
+    <table name="ESArpStatus">
+		<column name="timestamp_firstseen" type="datetime" />
+		<column name="timestamp_lastseen" type="datetime" />
+
+		<column name="receiver_hostname" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESArpStatus_ESEventlogComputer_Receiver</fkey_constraint>
+		</column>
+		<column name="interface_mac" type="int" key="foreign">
+			<fkey_table>ESMacAddress</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESArpStatus_ESMacAddress_Interface</fkey_constraint>
+		</column>
+		<column name="discover_mac" type="int" key="foreign">
+			<fkey_table>ESMacAddress</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESArpStatus_ESMacAddress_Discover</fkey_constraint>
+		</column>
+		<column name="discover_ips" type="varchar" length="255" />
+		<column name="discover_ips_hostname" type="int" key="foreign">
+			<fkey_table>ESEventlogComputer</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESArpStatus_ESEventlogComputer_Resolved</fkey_constraint>
+		</column>
+		<column name="discover_mac_vendor" type="int" key="foreign">
+			<fkey_table>ESMacAddressVendor</fkey_table>
+			<fkey_column>id</fkey_column>
+			<fkey_constraint>FK_ESArpStatus_ESMacAddressVendor</fkey_constraint>
+		</column>
+
+		<permissions user="eventsentry_svc">
+			<permission>INSERT</permission>
+			<permission>UPDATE</permission>
+			<permission>SELECT</permission>
+		</permissions>
+		<permissions user="eventsentry_web">
+			<permission>SELECT</permission>
+		</permissions>
+		<index name="IDX_ES_ArpStatus_LastSeen" type="CLUSTERED" fillfactor="80">
+			<field name="timestamp_lastseen" />
+		</index>
+		<index name="IDX_ES_ArpStatus_FirstSeen" fillfactor="80">
+			<field name="timestamp_firstseen" />
+		</index>
+		<index name="IDX_ES_ArpStatus_Mac" fillfactor="80">
+			<field name="discover_mac" />
+		</index>
+	</table>
+</tables>
